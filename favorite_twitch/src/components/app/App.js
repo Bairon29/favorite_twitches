@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import { getVideosBy } from './utils/APICalls';
+
 class App extends Component {
   constructor(){
     super();
   }
 
   componentDidMount(){
-    fetch('https://api.twitch.tv/helix/videos?game_id=33214',{
-      method: 'GET',
-      headers: {
-        'Client-ID': '6j17igflcyzr8nvlsz7hr2mevu8vcp'
-      }
-    }).then(res => res.json()).then(data => {
-      console.log(data);
-    })
+    getVideosBy('game_id', 33214);
   }
   render() {
     return (
