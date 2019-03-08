@@ -1,17 +1,38 @@
 import React, { Component } from 'react';
-import './App.css';
 
-import OptionList from './page_sessions/option_list/OptionList'
-// import { getVideosBy } from './utils/APICalls';
+import  './App.css';
+
+import { getVideosBy, offline_getVideosBy } from '../redux/actions/VideoActions';
+import OptionList from './page_sessions/option_list/OptionList';
+import { connect } from 'react-redux';
 
 class App extends Component {
-  // constructor(){
-  //   super();
-  // }
+  constructor(){
+    super();
+    this.state = {
+      videos: null,
+      message: '',
+      isLoading: true
+    }
+  }
 
-  // componentDidMount(){
-  //   getVideosBy('game_id', 33214);
-  // }
+  componentWillReceiveProps(nextProps){
+    if(nextProps.videos!==this.state.videos){
+        this.setState({
+            videos: nextProps.videos
+        })
+    }
+}
+
+componentDidMount(){
+    // this.props.getVideosBy('game_id', 33214);
+  // this.setState({
+  //     videos: data['data']
+  // });
+  
+  this.props.offline_getVideosBy();
+}
+
   render() {
     return (
       <div className="App">
@@ -20,5 +41,12 @@ class App extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+      videos: state.videos.videos,
+      message: state.videos.message,
+      isLoading: state.videos.isLoading
+  }
+}
 
-export default App;
+export default connect(mapStateToProps, {getVideosBy, offline_getVideosBy})(App);

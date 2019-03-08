@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-import { getVideosBy } from '../../utils/APICalls';
+// import { getVideosBy } from '../../utils/APICalls';
 
 class FeaturedVideo extends Component {
   constructor(){
@@ -12,11 +12,11 @@ class FeaturedVideo extends Component {
   }
 
   componentDidMount(){
-    getVideosBy('game_id', 33214).then(data => {
-        this.setState({
-            games: data
-        })
-    });
+    // getVideosBy('game_id', 33214).then(data => {
+    //     this.setState({
+    //         games: data
+    //     })
+    // });
   }
   render() {
     return (

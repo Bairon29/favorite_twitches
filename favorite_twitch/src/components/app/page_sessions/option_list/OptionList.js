@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import OptionItem from './option_item/OptionItem'
 
-import { getVideosBy } from '../../../redux/actions/VideoActions';
+// import { getVideosBy } from '../../../redux/actions/VideoActions';
 import { connect } from 'react-redux';
 
-import data from './data'
+// import data from '../data'
 
 class OptionList extends Component {
   constructor(){
@@ -16,57 +16,30 @@ class OptionList extends Component {
     }
     this.shouldLoadTemple = this.shouldLoadTemple.bind(this);
   }
-    // static getDerivedStateFromProps(nextProps, prevState){
-    //     if(nextProps.videos!==prevState.videos){
-    //         console.log('life cycle',nextProps.videos, prevState)
-    //         return {videos: nextProps.videos};
-    // }
-    // else return null;
-    // }
 
-//     getSnapshotBeforeUpdate(prevProps, prevState) {
-//         // Are we adding new items to the list?
-//         // Capture the scroll position so we can adjust scroll later.
-//         if (!prevProps.videos) {
-//             console.log('life cycle',prevProps.videos, prevState)
-//             return this.props.videos;
-//         }
-//         return null;
-//     }
-
-//     componentDidUpdate(prevProps, prevState) {
-//         if(prevProps.videos!==this.props.videos){
-//           //Perform some operation here
-//           this.setState({videos: this.props.videos});
-//         //   this.classMethod();
-//         }
-//       }
-//   shouldComponentUpdate(nextProps, nextState){
-//       return this.state.videos !== nextState.videos;
-//   }
-    componentWillReceiveProps(nextProps){
-        if(nextProps.videos!==this.state.videos){
-            this.setState({
-                videos: nextProps.videos
-            })
-        }
-    }
+    // componentWillReceiveProps(nextProps){
+    //     if(nextProps.videos!==this.state.videos){
+    //         this.setState({
+    //             videos: nextProps.videos
+    //         })
+    //     }
+    // }
   shouldLoadTemple(){
       console.log('viiidd',this.props.videos)
-      if(this.state.videos){
-        return <OptionItem data={this.state.videos} />
+      if(Object.keys(this.props.videos).length > 0){
+        return <OptionItem data={this.props.videos} />
       } else{
           return <h1>Loading..</h1>
       }
   }
 
-    componentDidMount(){
-        this.props.getVideosBy('game_id', 33214);
-    // this.setState({
-    //     videos: data['data']
-    // });
-    // console.log(data['data'],'after', this.state.videos)
-    }
+    // componentDidMount(){
+    //     // this.props.getVideosBy('game_id', 33214);
+    //   this.setState({
+    //       videos: data['data']
+    //   });
+    // // console.log(data['data'],'after', this.state.videos)
+    // }
   render() {
     return (
       <div className="option-video">
@@ -84,4 +57,4 @@ const mapStateToProps = state => {
     }
   }
 
-export default connect(mapStateToProps, {getVideosBy})(OptionList);
+export default connect(mapStateToProps)(OptionList);
