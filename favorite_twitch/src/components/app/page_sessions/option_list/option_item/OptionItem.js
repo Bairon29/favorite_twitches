@@ -9,10 +9,11 @@ class OptionItem extends Component {
   displayItem(){
       console.log('dattaaaa',this.props.data)
     const items = this.props.data.map((item) => 
-        <div key={item['created_at']}>
+        <div key={item['started_at']}>
             <h1>{item.user_name}</h1>
             <h2>{item.title}</h2>
             <a href={item.url} >Watch Now!</a>
+            <img src={item.thumbnail_url} alt="thumbnail url" />
         </div>
     );
     return items;

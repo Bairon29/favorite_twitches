@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 
 import  './App.css';
 
-import { getVideosBy, offline_getVideosBy } from '../redux/actions/VideoActions';
+import { getStreams, offline_getStreams } from '../redux/actions/VideoActions';
 import OptionList from './page_sessions/option_list/OptionList';
+import FeaturedVideo from './page_sessions/featured_video/FeaturedVideo';
 import { connect } from 'react-redux';
 
 class App extends Component {
@@ -11,6 +12,7 @@ class App extends Component {
     super();
     this.state = {
       videos: null,
+      featured: null,
       message: '',
       isLoading: true
     }
@@ -25,17 +27,18 @@ class App extends Component {
 }
 
 componentDidMount(){
-    // this.props.getVideosBy('game_id', 33214);
+    this.props.getStreams();
   // this.setState({
   //     videos: data['data']
   // });
   
-  this.props.offline_getVideosBy();
+  // this.props.offline_getStreams();
 }
 
   render() {
     return (
       <div className="App">
+        <FeaturedVideo />
         <OptionList />
       </div>
     );
@@ -44,9 +47,10 @@ componentDidMount(){
 const mapStateToProps = state => {
   return {
       videos: state.videos.videos,
+      featured: state.videos.featured,
       message: state.videos.message,
       isLoading: state.videos.isLoading
   }
 }
 
-export default connect(mapStateToProps, {getVideosBy, offline_getVideosBy})(App);
+export default connect(mapStateToProps, {getStreams, offline_getStreams})(App);

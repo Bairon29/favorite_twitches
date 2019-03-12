@@ -7,6 +7,7 @@ export default function(state = INITIALSTATE, action){
             return {
                 ...state,
                 videos: action.videos,
+                featured: action.featured,
                 message: action.message,
                 isLoading: false
             }
