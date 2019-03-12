@@ -19,12 +19,16 @@ class FeaturedVideo extends Component {
       if(this.props.featured){
         var item = this.props.featured;
         return (
-          <div>
-            <h1>Featured Video</h1>
-            <h1>{item.user_name}</h1>
-            <h2>{item.title}</h2>
-            <a href={item.url} >Watch Now!</a>
-            <img src={item.thumbnail_url} alt="thumbnail url" />
+          <div className="featured-video">
+            <div className="featured-content">
+                <h1>Featured Video</h1>
+                <h1>{item.user_name}</h1>
+                <h2>{item.title}</h2>
+                <a href={item.url} >Watch Now!</a>
+            </div>
+            <div className="featured-img">
+                <img src={item.thumbnail_url} alt="thumbnail url" />
+            </div>
           </div>
         );
       } else{
@@ -33,7 +37,7 @@ class FeaturedVideo extends Component {
   }
   render() {
     return (
-      <div className="featured-video">
+      <div className="featured-container">
         {this.shouldLoadTemple()}
       </div>
     );
