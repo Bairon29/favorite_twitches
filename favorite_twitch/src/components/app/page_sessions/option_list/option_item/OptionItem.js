@@ -9,12 +9,17 @@ class OptionItem extends Component {
   displayItem(){
       console.log('dattaaaa',this.props.data)
     const items = this.props.data.map((item) => 
-        <div key={item['started_at']}>
+      <div className="optin-video">
+        <div className="option-content">
+            <h1>Featured Video</h1>
             <h1>{item.user_name}</h1>
             <h2>{item.title}</h2>
             <a href={item.url} >Watch Now!</a>
+        </div>
+        <div className="option-img">
             <img src={item.thumbnail_url} alt="thumbnail url" />
         </div>
+      </div>
     );
     return items;
   }

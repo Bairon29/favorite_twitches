@@ -42,7 +42,7 @@ class OptionList extends Component {
     // }
   render() {
     return (
-      <div className="option-video">
+      <div className="option-container">
         {this.shouldLoadTemple()}
       </div>
     );

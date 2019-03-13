@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import './Featured.css'
 // import { getVideosBy } from '../../utils/APICalls';
 
 class FeaturedVideo extends Component {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import  './App.css';
 
 import { getStreams, offline_getStreams } from '../redux/actions/VideoActions';
@@ -27,12 +26,9 @@ class App extends Component {
 }
 
 componentDidMount(){
-    this.props.getStreams();
-  // this.setState({
-  //     videos: data['data']
-  // });
+    // this.props.getStreams();
   
-  // this.props.offline_getStreams();
+  this.props.offline_getStreams();
 }
 
   render() {
