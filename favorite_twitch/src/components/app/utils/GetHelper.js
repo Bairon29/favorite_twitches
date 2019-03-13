@@ -19,3 +19,14 @@ export const getMostViewStreams = (data) => {
 
     return streams;
 }
+
+export const handleStringLength = (str, len) => {
+    var sub_str = "";
+    if(len >= str.length || len < 1) {
+        return str;
+    }
+
+    sub_str = str.substr(0, len);
+    sub_str += "...";
+    return sub_str;
+}

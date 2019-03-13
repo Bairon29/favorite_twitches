@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import OptionItem from './option_item/OptionItem'
+import './Option.css'
 
 // import { getVideosBy } from '../../../redux/actions/VideoActions';
 import { connect } from 'react-redux';
