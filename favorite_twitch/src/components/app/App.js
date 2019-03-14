@@ -3,6 +3,7 @@ import  './App.css';
 
 import { getStreams, offline_getStreams } from '../redux/actions/VideoActions';
 import OptionList from './page_sessions/option_list/OptionList';
+import SearchOption from './page_sessions/search/SearchOption';
 import FeaturedVideo from './page_sessions/featured_video/FeaturedVideo';
 import { connect } from 'react-redux';
 
@@ -35,6 +36,7 @@ componentDidMount(){
     return (
       <div className="App">
         <FeaturedVideo />
+        <SearchOption />
         <OptionList />
       </div>
     );

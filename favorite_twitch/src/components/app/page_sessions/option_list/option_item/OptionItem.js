@@ -27,8 +27,14 @@ class OptionItem extends Component {
   }
 
   render() {
+    var temp;
+    if(this.props.data.length > 50){
+      temp = (((this.props.data.length / OPTION_ITEM_WRAP_NUM) * OPTION_ITEM_HEIGHT) + OPTION_ITEM_OFFSET) + 1150;
+    } else {
+      temp = (((this.props.data.length / OPTION_ITEM_WRAP_NUM) * OPTION_ITEM_HEIGHT) + OPTION_ITEM_OFFSET) - 350;
+    }
     var hei = { 
-      height: (((this.props.data.length / OPTION_ITEM_WRAP_NUM) * OPTION_ITEM_HEIGHT) + OPTION_ITEM_OFFSET)
+      height: temp + "px"
     }
     return (
       <div className="option-item" style={hei} >
