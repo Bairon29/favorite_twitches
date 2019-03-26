@@ -1,4 +1,4 @@
-import { GOT_VIDEOS, INITIALSTATE } from '../actionTypes/Types';
+import { GOT_VIDEOS, INITIALSTATE, GOT_GAMES } from '../actionTypes/Types';
 
 
 export default function(state = INITIALSTATE, action){
@@ -8,6 +8,16 @@ export default function(state = INITIALSTATE, action){
                 ...state,
                 videos: action.videos,
                 featured: action.featured,
+                pagination: state.videos.pagination,
+                message: action.message,
+                isLoading: false
+            }
+        case GOT_GAMES:
+            return {
+                ...state,
+                videos: action.videos,
+                featured: action.featured,
+                games_pagination: state.videos.pagination,
                 message: action.message,
                 isLoading: false
             }

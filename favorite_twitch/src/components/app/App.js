@@ -13,6 +13,8 @@ class App extends Component {
     this.state = {
       videos: null,
       featured: null,
+      pagination: '',
+      games_pagination: '',
       message: '',
       isLoading: true
     }
@@ -27,7 +29,7 @@ class App extends Component {
 }
 
 componentDidMount(){
-    // this.props.getStreams();
+    // this.props.getStreams(40, this.state.pagination);
   
   this.props.offline_getStreams();
 }
@@ -47,6 +49,8 @@ const mapStateToProps = state => {
       videos: state.videos.videos,
       featured: state.videos.featured,
       message: state.videos.message,
+      pagination: state.videos.pagination,
+      games_pagination: state.videos.games_pagination,
       isLoading: state.videos.isLoading
   }
 }
