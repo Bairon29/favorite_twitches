@@ -16,7 +16,6 @@ export default function(state = INITIALSTATE, action){
             return {
                 ...state,
                 videos: action.videos,
-                featured: action.featured,
                 games_pagination: state.videos.pagination,
                 message: action.message,
                 isLoading: false

@@ -29,6 +29,7 @@ class App extends Component {
 }
 
 componentDidMount(){
+  
     // this.props.getStreams(40, this.state.pagination);
   
   this.props.offline_getStreams();
